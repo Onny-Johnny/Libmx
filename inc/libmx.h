@@ -15,6 +15,7 @@ typedef struct  s_list {
     struct s_list *next;
 }   t_list;
 
+bool mx_isspace(char c);
 void mx_print_alphabet(void);
 void mx_sort_arr_int(int *arr, int size);
 int mx_factorial_iter(int n);

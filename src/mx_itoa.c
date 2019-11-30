@@ -1,33 +1,58 @@
 #include "libmx.h"
 
-char * mx_itoa(int number) {
-    int len = 0;
-    int num = number;
-    char* str = 0;
-    int isNeg = 0;
+int num_len(int number) {
+    int count = 0;
+    long num = number;
 
-    if (number == 0) {
-        str = (char*) malloc (sizeof(char) * 2);
-        str = "0\0";
-        return str;
+    if (num == 0) {
+        count++;
+    }else if (num < 0) {
+        count++;
+        num = -num;
+        while (num != 0) {
+            count++;
+            num /= 10;
+        }
+    } else {
+        while (num != 0) {
+            count++;
+            num /= 10;
+        }
     }
-    for (;num != 0; len++, num/=10);
-    if (number == -2147483648) {
-        str = (char*) malloc (sizeof(char) * 12);
-        str = "-2147483648\0";
-        return str;
+    return count;
+}
+
+char *num_ret(int number) {
+    char *c = malloc(num_len(number));
+    long num = number;
+    int i = 0;
+
+    if (num == 0) {
+        c[i] = '0';
     }
-    if(number < 0) {
-        number = -number;
-        isNeg = 1;
-        str = (char*) malloc (sizeof(char) * len +2);
-        str[0] = '-';
-    } 
-    else str = (char*) malloc (sizeof(char) * len + 1);
-    for (int i = len + isNeg - 1; i >= isNeg; i--) {
-        str[i] = number % 10 + 48;
-        number /=10;
+    if (num < 0) {
+        num = -num;
+        c[num_len(number) - 1] = '-';
     }
-    str[len + isNeg] = 0;
-    return str;
+   
+    while (num != 0) {
+        c[i] = (num % 10) + '0';
+        num /= 10;
+        i++;
+    }
+    return c;
+}
+
+char *mx_itoa(int number) {
+    char *c =  malloc(num_len(number));
+    char *c1 = malloc(num_len(number));
+    int i = 0;
+    c = num_ret( number);
+
+    for (int j = num_len(number) - 1; i < num_len(number); i++, j--)
+        c1[i] = c[j];
+    free(c);
+    c = NULL;
+    c1[i] = '\0';
+    return c1;
 }

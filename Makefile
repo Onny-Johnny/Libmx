@@ -4,7 +4,8 @@ INC = inc/libmx.h
 
 HEADTMP = libmx.h
 
-SRC =./mx_print_alphabet.c \
+SRC =	./mx_isspace.c \
+	./mx_print_alphabet.c \
 	./mx_sort_arr_int.c \
 	./mx_factorial_iter.c \
 	./mx_printchar.c \
@@ -60,7 +61,8 @@ SRC =./mx_print_alphabet.c \
 	./mx_sort_list.c \
 	./mx_printint.c \
 
-SRCS =./src/mx_print_alphabet.c \
+SRCS =	./src/mx_isspace.c \
+	./src/mx_print_alphabet.c \
 	./src/mx_sort_arr_int.c \
 	./src/mx_factorial_iter.c \
 	./src/mx_printchar.c \
@@ -116,7 +118,8 @@ SRCS =./src/mx_print_alphabet.c \
 	./src/mx_sort_list.c \
 	./src/mx_printint.c \
 
-OUT =mx_print_alphabet.o \
+OUT =	mx_isspace.o \
+	mx_print_alphabet.o \
 	mx_sort_arr_int.o \
 	mx_factorial_iter.o \
 	mx_printchar.o \
@@ -172,7 +175,8 @@ OUT =mx_print_alphabet.o \
 	mx_sort_list.o \
 	mx_printint.o \
 
-OUT1 =./obj/mx_print_alphabet.o \
+OUT1 =	./obj/mx_isspace.o \
+	./obj/mx_print_alphabet.o \
 	./obj/mx_sort_arr_int.o \
 	./obj/mx_factorial_iter.o \
 	./obj/mx_printchar.o \
